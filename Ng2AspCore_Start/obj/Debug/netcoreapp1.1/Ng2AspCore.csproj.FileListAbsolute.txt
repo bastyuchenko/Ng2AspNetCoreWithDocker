@@ -1,0 +1,8 @@
+E:\progs\Ng2AspCore\bin\Debug\netcoreapp1.1\Ng2AspCore.deps.json
+E:\progs\Ng2AspCore\bin\Debug\netcoreapp1.1\Ng2AspCore.runtimeconfig.json
+E:\progs\Ng2AspCore\bin\Debug\netcoreapp1.1\Ng2AspCore.runtimeconfig.dev.json
+E:\progs\Ng2AspCore\obj\Debug\netcoreapp1.1\Ng2AspCore.AssemblyInfo.cs
+E:\progs\Ng2AspCore\bin\Debug\netcoreapp1.1\Ng2AspCore.dll
+E:\progs\Ng2AspCore\bin\Debug\netcoreapp1.1\Ng2AspCore.pdb
+E:\progs\Ng2AspCore\obj\Debug\netcoreapp1.1\Ng2AspCore.dll
+E:\progs\Ng2AspCore\obj\Debug\netcoreapp1.1\Ng2AspCore.pdb
