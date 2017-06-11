@@ -1,0 +1,24 @@
+<div class='panel panel-primary'>
+  <div class='panel-body'>
+    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>
+    <h2>Employee List</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>EmployeeId</th>
+          <th>FirstName</th>
+          <th>LastName</th>
+          <th>BirthDay</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let employee of employees'>
+          <td>{{employee.employeeId}}</td>
+          <td>{{employee.firstName}}</td>
+          <td>{{employee.lastName}}</td>
+          <td>{{employee.birthDay | date:'mediumDate'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
