@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -11,6 +12,7 @@ const { CommonsChunkPlugin } = require('webpack').optimize;
 const { AotPlugin } = require('@ngtools/webpack');
 
 const nodeModules = path.join(process.cwd(), 'node_modules');
+const realNodeModules = fs.realpathSync(nodeModules);
 const genDirNodeModules = path.join(process.cwd(), 'src', '$$_gendir', 'node_modules');
 const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
 const minimizeCss = false;
@@ -69,22 +71,23 @@ module.exports = {
   },
   "resolveLoader": {
     "modules": [
+      "./node_modules",
       "./node_modules"
     ]
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./src\\styles.css"
+      "./src/styles.css"
     ]
   },
   "output": {
-    "path": path.join(process.cwd(), "wwwroot"),
+    "path": path.join(process.cwd(), "dist"),
     "filename": "[name].bundle.js",
     "chunkFilename": "[id].chunk.js"
   },
@@ -116,7 +119,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -139,7 +142,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -170,7 +173,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -199,7 +202,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -229,7 +232,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.css$/,
         "use": [
@@ -252,7 +255,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -283,7 +286,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.less$/,
         "use": [
@@ -312,7 +315,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.css")
+          path.join(process.cwd(), "src/styles.css")
         ],
         "test": /\.styl$/,
         "use": [
@@ -354,14 +357,14 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "E:\\progs\\Ng2AspCore\\src",
+        "cwd": "/home/osboxes/Documents/Progs/Ng2AspCore/src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }
     }),
     new ProgressPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src/index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -399,8 +402,12 @@ module.exports = {
       "name": [
         "vendor"
       ],
-      "minChunks": (module) => module.resource &&
-                (module.resource.startsWith(nodeModules) || module.resource.startsWith(genDirNodeModules)),
+      "minChunks": (module) => {
+                return module.resource
+                    && (module.resource.startsWith(nodeModules)
+                        || module.resource.startsWith(genDirNodeModules)
+                        || module.resource.startsWith(realNodeModules));
+            },
       "chunks": [
         "main"
       ]
@@ -409,10 +416,10 @@ module.exports = {
     new AotPlugin({
       "mainPath": "main.ts",
       "hostReplacementPaths": {
-        "environments\\environment.ts": "environments\\environment.ts"
+        "environments/environment.ts": "environments/environment.ts"
       },
       "exclude": [],
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "skipCodeGeneration": true
     })
   ],
