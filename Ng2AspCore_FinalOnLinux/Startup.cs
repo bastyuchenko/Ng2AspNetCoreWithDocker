@@ -29,7 +29,7 @@ namespace Ng2AspCore
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<HRContext>(options => options.
-                    UseSqlServer(Configuration.GetConnectionString("AzureDbConnection")));
+                    UseSqlServer(Configuration.GetConnectionString("LinuxDbConnection")));
             services.AddMvc();
         }
 

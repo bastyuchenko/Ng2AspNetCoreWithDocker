@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace Ng2AspCore_FinalOnWindows.DBModel.Migrations
+namespace Ng2AspCore_FinalOnLinux.DBModel.Migrations
 {
     public partial class HRContextMigration : Migration
     {

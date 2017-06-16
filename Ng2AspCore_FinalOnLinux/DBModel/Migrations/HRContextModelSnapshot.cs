@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Ng2AspCore.DBModel;
 
-namespace Ng2AspCore_FinalOnWindows.DBModel.Migrations
+namespace Ng2AspCore_FinalOnLinux.DBModel.Migrations
 {
     [DbContext(typeof(HRContext))]
     partial class HRContextModelSnapshot : ModelSnapshot

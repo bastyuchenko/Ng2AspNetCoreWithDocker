@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Ng2AspCore.DBModel;
 
-namespace Ng2AspCore_FinalOnWindows.DBModel.Migrations
+namespace Ng2AspCore_FinalOnLinux.DBModel.Migrations
 {
     [DbContext(typeof(HRContext))]
-    [Migration("20170610161850_HRContextMigration")]
+    [Migration("20170615220400_HRContextMigration")]
     partial class HRContextMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
