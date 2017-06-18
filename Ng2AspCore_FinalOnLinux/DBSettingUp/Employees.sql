@@ -1,3 +1,4 @@
+USE linuxdb
 SET IDENTITY_INSERT [dbo].[Employees] ON
 INSERT INTO [dbo].[Employees] ([EmployeeId], [BirthDay], [FirstName], [LastName]) VALUES (2, N'1990-11-05 00:00:00', N'Orlando', N'Gee')
 INSERT INTO [dbo].[Employees] ([EmployeeId], [BirthDay], [FirstName], [LastName]) VALUES (5, N'1986-07-14 00:00:00', N'Keith', N'Harris')
