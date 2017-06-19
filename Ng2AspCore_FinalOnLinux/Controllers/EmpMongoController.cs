@@ -4,23 +4,23 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoDB.Driver.Linq;
 using Ng2AspCore.DBModel;
+using Ng2AspCore.Services;
 
 namespace Ng2AspCore.Controllers
 {
     [Route("api/EmployeeMongodb")]
     public class EmpMongoController: Controller
     {
-        private readonly IMongoDatabase _mongoDatabase;
-        public EmpMongoController()
+        private MongoContext context;
+        public EmpMongoController(MongoContext context)
         {
-            var mongoClient = new MongoClient("mongodb://localhost:5533");
-            _mongoDatabase = mongoClient.GetDatabase("CompanyDB");
+            this.context = context;
         }
 
         [HttpGet("GetAll")]
         public IEnumerable<EmployeeMongo> GetAllEmployeesFromMongodb()
         {
-            return _mongoDatabase.GetCollection<EmployeeMongo>("employees")
+            return context.db.GetCollection<EmployeeMongo>("employees")
             .Find(x=>x.LastName.StartsWith("C")).ToList();
         }
     }

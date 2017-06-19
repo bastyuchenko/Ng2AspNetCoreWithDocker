@@ -34,7 +34,7 @@ module.exports = module.exports.toString();
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4 class='panel-heading'>\r\n    {{errorMessage}}\r\n</h4>\r\n<h2 class='panel-heading'>\r\n    {{pageTitle}}\r\n</h2>\r\n<hr/>\r\n\r\n<employee-list></employee-list>"
+module.exports = "<h4 class='panel-heading'>\n    {{errorMessage}}\n</h4>\n<h2 class='panel-heading'>\n    {{pageTitle}}\n</h2>\n<hr/>\n\n<employee-list></employee-list>"
 
 /***/ }),
 
@@ -189,7 +189,7 @@ var _a;
 /***/ "./src/app/employees/employee-list.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class='panel panel-primary'>\r\n  <div class='panel-body'>\r\n    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>\r\n    <h2>Employee List</h2>\r\n    <table>\r\n      <thead>\r\n        <tr>\r\n          <th>EmployeeId</th>\r\n          <th>FirstName</th>\r\n          <th>LastName</th>\r\n          <th>BirthDay</th>\r\n        </tr>\r\n      </thead>\r\n      <tbody>\r\n        <tr *ngFor='let employee of employees'>\r\n          <td>{{employee.employeeId}}</td>\r\n          <td>{{employee.firstName}}</td>\r\n          <td>{{employee.lastName}}</td>\r\n          <td>{{employee.birthDay | date:'mediumDate'}}</td>\r\n        </tr>\r\n      </tbody>\r\n    </table>\r\n  </div>\r\n</div>"
+module.exports = "<div class='panel panel-primary'>\n  <div class='panel-body'>\n    <div class='has-error' *ngIf='errorMessage'>{{errorMessage}}</div>\n    <h2>Employee List</h2>\n    <table>\n      <thead>\n        <tr>\n          <th>EmployeeId</th>\n          <th>FirstName</th>\n          <th>LastName</th>\n          <th>BirthDay</th>\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor='let employee of employees'>\n          <td>{{employee.employeeId}}</td>\n          <td>{{employee.firstName}}</td>\n          <td>{{employee.lastName}}</td>\n          <td>{{employee.birthDay | date:'mediumDate'}}</td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -248,7 +248,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "table {\r\n    border-collapse: collapse;\r\n    width: 100%;\r\n}\r\n\r\nth, td {\r\n    text-align: left;\r\n    padding: 8px;\r\n}\r\n\r\ntr:nth-child(even){background-color: #f2f2f2}\r\n\r\nth {\r\n    background-color: #4CAF50;\r\n    color: white;\r\n}", ""]);
+exports.push([module.i, "table {\n    border-collapse: collapse;\n    width: 100%;\n}\n\nth, td {\n    text-align: left;\n    padding: 8px;\n}\n\ntr:nth-child(even){background-color: #f2f2f2}\n\nth {\n    background-color: #4CAF50;\n    color: white;\n}", ""]);
 
 // exports
 
@@ -296,7 +296,7 @@ var EmployeeService = (function () {
         this._http = _http;
     }
     EmployeeService.prototype.getEmployees = function () {
-        return this._http.get('api/Employee/GetAll')
+        return this._http.get('/api/EmployeeMongodb/GetAll')
             .map(function (response) { return response.json(); })
             .catch(this.handleError);
     };

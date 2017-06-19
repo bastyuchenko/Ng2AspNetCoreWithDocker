@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Ng2AspCore.DBModel;
 using Microsoft.EntityFrameworkCore;
+using Ng2AspCore.Services;
 
 namespace Ng2AspCore
 {
@@ -28,8 +29,8 @@ namespace Ng2AspCore
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<HRContext>(options => options.
-                    UseSqlServer(Configuration.GetConnectionString("LinuxDbConnection")));
+            services.AddSingleton(new MongoContext(Configuration
+                    .GetConnectionString("MongoDbConnection")));
             services.AddMvc();
         }
 

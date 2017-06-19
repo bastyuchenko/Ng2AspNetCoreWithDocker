@@ -12,7 +12,7 @@ namespace Ng2AspCore.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok("Hello Angular4 and ASP.NET Core from Windows 10");
+            return Ok("Hello Angular4 and ASP.NET Core from Ubuntu");
         }
     }
 }

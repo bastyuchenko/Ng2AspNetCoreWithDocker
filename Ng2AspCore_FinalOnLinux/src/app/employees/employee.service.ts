@@ -14,7 +14,7 @@ export class EmployeeService {
     constructor(private _http: Http) { }
 
     getEmployees(): Observable<IEmployee[]> {
-        return this._http.get('api/Employee/GetAll')
+        return this._http.get('/api/EmployeeMongodb/GetAll')
             .map((response: Response) => <IEmployee[]> response.json())
             .catch(this.handleError);
     }
