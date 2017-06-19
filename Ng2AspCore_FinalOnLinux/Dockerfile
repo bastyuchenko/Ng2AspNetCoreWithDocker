@@ -3,4 +3,4 @@ ARG source=.
 WORKDIR /app
 EXPOSE 80
 COPY $source .
-ENTRYPOINT ["dotnet", "Ng2AspCore_FinalOnWindows.dll"]
+ENTRYPOINT ["dotnet", "Ng2AspCore_FinalOnLinux.dll"]
